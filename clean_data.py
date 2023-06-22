@@ -17,7 +17,12 @@ for station in data["stations"]:
     rv[station] = input
     input = {}
 
-print(rv)
+secondary = {}
+for station in data["stations"]:
+    secondary[station] = data["stations"][station]["name_en"]
+
 with open("/Users/noahantisseril/Desktop/Projects/MetroNavigator/clean_stations.json", "w") as outfile:
     json.dump(rv, outfile)
+with open("/Users/noahantisseril/Desktop/Projects/MetroNavigator/secondary.json", "w") as outfile:
+    json.dump(secondary, outfile)
     
