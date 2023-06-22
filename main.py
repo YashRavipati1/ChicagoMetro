@@ -8,6 +8,7 @@ with open(file_path, "r") as file:
 file_path = "/Users/noahantisseril/Desktop/Projects/MetroNavigator/secondary.json"
 with open(file_path, "r") as file:
     secondary = json.load(file)
+tertiary = dict((v,k) for k,v in secondary.items())
 
 Graph = nx.Graph()
 for stations in data:
@@ -18,7 +19,7 @@ letter_to_line = {"A" : "Rose", "I" : "Blue", "S" : "Leaf", "E" : "Magenta", "G"
 
 start = input("Start Station: ")
 end = input("End Station: ")
-check = nx.shortest_path(Graph, start, end)
+check = nx.shortest_path(Graph, tertiary[start], tertiary[end])
 
 output = ""
 for i in range(len(check) - 1):
