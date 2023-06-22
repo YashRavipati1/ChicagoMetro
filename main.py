@@ -1,7 +1,6 @@
 import networkx as nx
 import json
 
-
 file_path = "/Users/noahantisseril/Desktop/Projects/MetroNavigator/clean_stations.json"
 with open(file_path, "r") as file:
     data = json.load(file)
@@ -20,8 +19,6 @@ letter_to_line = {"A" : "Rose", "I" : "Blue", "S" : "Leaf", "E" : "Magenta", "G"
 start = input("Start Station: ")
 end = input("End Station: ")
 check = nx.shortest_path(Graph, start, end)
-print(check)
-print(nx.path_weight(Graph, path=check, weight="weight")/60 + (40/60) * len(check))
 
 output = ""
 for i in range(len(check) - 1):
@@ -32,5 +29,5 @@ for i in range(len(check) - 1):
     if check[i + 1][0] == check[i][0]:
         continue
     output += "Ride on the " + letter_to_line[check[i][0]] + " line until " + secondary[check[i]] + " Station. "
+output += "Estimated time " + str(nx.path_weight(Graph, path=check, weight="weight")/60 + (40/60) * len(check)) + " minutes."
 print(output)
-
