@@ -1,6 +1,6 @@
 import json
 
-file_path = "/Users/noahantisseril/Desktop/Projects/MetroNavigator/stations.json"
+file_path = "stations.json"
 
 with open(file_path, "r") as file:
     data = json.load(file)
@@ -21,8 +21,8 @@ secondary = {}
 for station in data["stations"]:
     secondary[station] = data["stations"][station]["name_en"]
 
-with open("/Users/noahantisseril/Desktop/Projects/MetroNavigator/clean_stations.json", "w") as outfile:
+with open("clean_stations.json", "w") as outfile:
     json.dump(rv, outfile)
-with open("/Users/noahantisseril/Desktop/Projects/MetroNavigator/secondary.json", "w") as outfile:
+with open("secondary.json", "w") as outfile:
     json.dump(secondary, outfile)
     
