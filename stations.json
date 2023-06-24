@@ -1231,13 +1231,6 @@
                     "target_id": "N11",
                     "type": "walk",
                     "type_id": 0
-                },
-                {
-                    "distance": 0.0,
-                    "duration": -1,
-                    "target_id": "M11",
-                    "type": "walk",
-                    "type_id": 0
                 }
             ],
             "name_en": "Kasuga",
@@ -4343,13 +4336,6 @@
                 {
                     "distance": 0.0,
                     "duration": -1,
-                    "target_id": "E07",
-                    "type": "walk",
-                    "type_id": 0
-                },
-                {
-                    "distance": 0.0,
-                    "duration": -1,
                     "target_id": "N11",
                     "type": "walk",
                     "type_id": 0
@@ -4759,6 +4745,13 @@
                     "target_id": "M24",
                     "type": "ride",
                     "type_id": 1
+                },
+                {
+                    "distance": 0,
+                    "duration": -1,
+                    "target_id": "Y09",
+                    "type": "walk",
+                    "type_id": 0
                 },
                 {
                     "distance": 0.0,
@@ -6581,6 +6574,13 @@
                     "target_id": "Y10",
                     "type": "ride",
                     "type_id": 1
+                },
+                {
+                    "distance": 0,
+                    "duration": -1,
+                    "target_id": "M25",
+                    "type": "walk",
+                    "type_id": 0
                 },
                 {
                     "distance": 0.0,

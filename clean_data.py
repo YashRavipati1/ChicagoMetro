@@ -13,7 +13,7 @@ for station in data["stations"]:
         if check == 0:
             input[connection["target_id"]] = 0
         else:
-            input[connection["target_id"]] = (0.045 * connection["distance"] * 1000 + 23.53)
+            input[connection["target_id"]] = connection["distance"]
     rv[station] = input
     input = {}
 
