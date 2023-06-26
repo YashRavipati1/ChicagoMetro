@@ -3,22 +3,36 @@ import sys
 import json
 
 
-graph = nx.read_graphml('tokyometro.graphml')
+graph = nx.read_graphml("tokyometro.graphml")
 start = sys.argv[1]
 end = sys.argv[2]
 
-#implement all translation maps
+# implement all translation maps
 file_path = "secondary.json"
 with open(file_path, "r") as file:
     secondary = json.load(file)
-tertiary = dict((v,k) for k,v in secondary.items())
-letter_to_line = {"A" : "Rose", "I" : "Blue", "S" : "Leaf", "E" : "Magenta", "G" : "Orange", "M" : "Red", "H" : "Silver", "T" : "Sky", "C" : "Green", "Y" : "Gold", "Z" : "Purple", "N" : "Emerald", "F" : "Brown"}
+tertiary = dict((v, k) for k, v in secondary.items())
+letter_to_line = {
+    "A": "Rose",
+    "I": "Blue",
+    "S": "Leaf",
+    "E": "Magenta",
+    "G": "Orange",
+    "M": "Red",
+    "H": "Silver",
+    "T": "Sky",
+    "C": "Green",
+    "Y": "Gold",
+    "Z": "Purple",
+    "N": "Emerald",
+    "F": "Brown",
+}
 
 
 def djikstra(graph, start, end):
     distances = {node: 1e7 for node in graph.nodes()}
-    distances[start] = 0 
-    pq = [(0, start)] #priority queue of nodes to visit
+    distances[start] = 0
+    pq = [(0, start)]  # priority queue of nodes to visit
     visited = set()
     previous = {}
 
@@ -31,7 +45,7 @@ def djikstra(graph, start, end):
             visited.add(current_node)
 
             for n in graph.neighbors(current_node):
-                weight = graph[current_node][n]['weight']
+                weight = graph[current_node][n]["weight"]
                 distance_to_neightbor = current_distance + weight
 
                 if distance_to_neightbor < distances[n]:
@@ -49,6 +63,7 @@ def djikstra(graph, start, end):
 
     return distances[end], path
 
+
 dji = djikstra(graph, tertiary[start], tertiary[end])
 
 output = ""
@@ -56,9 +71,21 @@ for i in range(len(dji[1]) - 1):
     if i == 0:
         output += "Board at " + secondary[dji[1][i]] + " Station. "
     if i == len(dji[1]) - 2:
-        output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i + 1]] + " Station. "
+        output += (
+            "Ride on the "
+            + letter_to_line[dji[1][i][0]]
+            + " line until "
+            + secondary[dji[1][i + 1]]
+            + " Station. "
+        )
     if dji[1][i + 1][0] == dji[1][i][0]:
         continue
-    output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i]] + " Station. "
+    output += (
+        "Ride on the "
+        + letter_to_line[dji[1][i][0]]
+        + " line until "
+        + secondary[dji[1][i]]
+        + " Station. "
+    )
 output += "Total distance traveled: " + str(dji[0]) + " km."
 print(output)

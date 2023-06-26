@@ -25,4 +25,3 @@ with open("clean_stations.json", "w") as outfile:
     json.dump(rv, outfile)
 with open("secondary.json", "w") as outfile:
     json.dump(secondary, outfile)
-    

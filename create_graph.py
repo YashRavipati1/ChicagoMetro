@@ -2,7 +2,7 @@ import json
 import networkx as nx
 import matplotlib.pyplot as plt
 
-with open('clean_stations_distance.json') as f:
+with open("clean_stations_distance.json") as f:
     data = json.load(f)
 
 graph = nx.Graph()
@@ -16,11 +16,11 @@ for node, neighbors in data.items():
     # if count == 5:
     #     break
 
-nx.write_graphml(graph, 'tokyometro.graphml')
+nx.write_graphml(graph, "tokyometro.graphml")
 
 
-pos = nx.spring_layout(graph) 
-nx.draw(graph, pos, with_labels=True) 
-edge_labels = nx.get_edge_attributes(graph, 'weight')
+pos = nx.spring_layout(graph)
+nx.draw(graph, pos, with_labels=True)
+edge_labels = nx.get_edge_attributes(graph, "weight")
 nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
 plt.show()
