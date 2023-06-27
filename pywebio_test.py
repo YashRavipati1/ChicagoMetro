@@ -1,12 +1,10 @@
 from dijkstras import dijkstra
 import networkx as nx
 import json
-from pywebio.input import input
-from pywebio.input import select
-from pywebio.output import put_text
-from pywebio.output import put_buttons
-from pywebio.output import put_button
-from pywebio.output import clear
+from pywebio import start_server, config
+from pywebio.input import *
+from pywebio.output import *
+from pywebio.pin import *
 
 # load metro #
 graph = nx.read_graphml("tokyometro.graphml")
@@ -69,6 +67,7 @@ def go_home():
     web_func()
 
 
+@config(theme="dark")
 def web_func():
     # start = input("Input your start station：")
     # end = input("Input your end station：")
@@ -83,4 +82,4 @@ def web_func():
 
 
 if __name__ == "__main__":
-    web_func()
+    start_server(web_func, port=8080, debug=True)
