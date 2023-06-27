@@ -4,8 +4,8 @@ import json
 
 
 graph = nx.read_graphml("tokyometro.graphml")
-start = sys.argv[1]
-end = sys.argv[2]
+# start = sys.argv[1]
+# end = sys.argv[2]
 
 # implement all translation maps
 file_path = "secondary.json"
@@ -29,7 +29,7 @@ letter_to_line = {
 }
 
 
-def djikstra(graph, start, end):
+def dijkstra(graph, start, end):
     distances = {node: 1e7 for node in graph.nodes()}
     distances[start] = 0
     pq = [(0, start)]  # priority queue of nodes to visit
@@ -64,28 +64,28 @@ def djikstra(graph, start, end):
     return distances[end], path
 
 
-dji = djikstra(graph, tertiary[start], tertiary[end])
+# dji = djikstra(graph, tertiary[start], tertiary[end])
 
-output = ""
-for i in range(len(dji[1]) - 1):
-    if i == 0:
-        output += "Board at " + secondary[dji[1][i]] + " Station. "
-    if i == len(dji[1]) - 2:
-        output += (
-            "Ride on the "
-            + letter_to_line[dji[1][i][0]]
-            + " line until "
-            + secondary[dji[1][i + 1]]
-            + " Station. "
-        )
-    if dji[1][i + 1][0] == dji[1][i][0]:
-        continue
-    output += (
-        "Ride on the "
-        + letter_to_line[dji[1][i][0]]
-        + " line until "
-        + secondary[dji[1][i]]
-        + " Station. "
-    )
-output += "Total distance traveled: " + str(dji[0]) + " km."
-print(output)
+# output = ""
+# for i in range(len(dji[1]) - 1):
+#     if i == 0:
+#         output += "Board at " + secondary[dji[1][i]] + " Station. "
+#     if i == len(dji[1]) - 2:
+#         output += (
+#             "Ride on the "
+#             + letter_to_line[dji[1][i][0]]
+#             + " line until "
+#             + secondary[dji[1][i + 1]]
+#             + " Station. "
+#         )
+#     if dji[1][i + 1][0] == dji[1][i][0]:
+#         continue
+#     output += (
+#         "Ride on the "
+#         + letter_to_line[dji[1][i][0]]
+#         + " line until "
+#         + secondary[dji[1][i]]
+#         + " Station. "
+#     )
+# output += "Total distance traveled: " + str(dji[0]) + " km."
+# print(output)
