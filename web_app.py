@@ -1,21 +1,13 @@
 # ----------------- setup ----------------- #
 import networkx as nx           # graphical representation for 
-import sys
-import json
-import streamlit                # web app
+import json                     # storing and retrieving database
+import streamlit as st          # web app
 from pyngrok import ngrok       # local server
 
 
-# ----------------- web app setup ----------------- #
-url = ngrok.connect(addr='8501')
-
-
-
 # ----------------- path calculation ----------------- #
+# load metro #
 graph = nx.read_graphml('tokyometro.graphml')
-start = sys.argv[1]
-end = sys.argv[2]
-
 
 # implement all translation maps
 file_path = "secondary.json"
@@ -25,10 +17,11 @@ tertiary = dict((v,k) for k,v in secondary.items())
 letter_to_line = {"A" : "Rose", "I" : "Blue", "S" : "Leaf", "E" : "Magenta", "G" : "Orange", "M" : "Red", "H" : "Silver", "T" : "Sky", "C" : "Green", "Y" : "Gold", "Z" : "Purple", "N" : "Emerald", "F" : "Brown"}
 
 
+# define dijkstra's algorithm #
 def djikstra(graph, start, end):
     distances = {node: 1e7 for node in graph.nodes()}
     distances[start] = 0 
-    pq = [(0, start)] #priority queue of nodes to visit
+    pq = [(0, start)]   # priority queue of nodes to visit
     visited = set()
     previous = {}
 
@@ -59,17 +52,45 @@ def djikstra(graph, start, end):
 
     return distances[end], path
 
-def 
 
-dji = djikstra(graph, tertiary[start], tertiary[end])
+"""
+    Returns the final text output for a given route calculation, allowing for easier web app
+    management. This can eventually become the get route if an API is deployed, but like who's 
+    doing all that. Note, the name is not `get` route, it's to get a route from start to end.
+"""
+def get_route(start, end) -> str:
+    # get route #
+    dji = djikstra(graph, tertiary[start], tertiary[end])
 
-output = ""
-for i in range(len(dji[1]) - 1):
-    if i == 0:
-        output += "Board at " + secondary[dji[1][i]] + " Station. "
-    if i == len(dji[1]) - 2:
-        output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i + 1]] + " Station. "
-    if dji[1][i + 1][0] == dji[1][i][0]:
-        continue
-    output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i]] + " Station. "
-output += "Total distance traveled: " + str(dji[0]) + " km."
+    # get output path #
+    output = ""
+    for i in range(len(dji[1]) - 1):
+        if i == 0:
+            output += "Board at " + secondary[dji[1][i]] + " Station. "
+        if i == len(dji[1]) - 2:
+            output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i + 1]] + " Station. "
+        if dji[1][i + 1][0] == dji[1][i][0]:
+            continue
+        output += "Ride on the " + letter_to_line[dji[1][i][0]] + " line until " + secondary[dji[1][i]] + " Station. "
+    output += "Total distance traveled: " + str(dji[0]) + " km."
+
+    return output
+
+
+# ----------------- web app ----------------- #
+# setup local server
+url = ngrok.connect(addr='8501')
+
+# setup web app
+stations = list(tertiary.keys())
+st.title("Tokyo Metro Navigator")
+
+departure = st.selectbox("Departure: ", stations)
+destination = st.selectbox("Destination: ", stations)
+submit = st.button("Calculate Route")
+
+# on submit
+if submit:
+    path = get_route(departure, destination)
+    st.markdown(path)
+
