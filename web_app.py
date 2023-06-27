@@ -1,10 +1,16 @@
-from dijkstras import dijkstra
+import webbrowser
+from flask import Flask
+from pywebio.platform.flask import webio_view
+from pywebio.input import select
+from pywebio.output import put_text, put_button, clear
 import networkx as nx
 import json
 from pywebio import start_server, config
-from pywebio.input import *
-from pywebio.output import *
-from pywebio.pin import *
+from dijkstras import dijkstra
+
+# from pywebio.platform import *
+
+app = Flask(__name__)
 
 # load metro #
 graph = nx.read_graphml("tokyometro.graphml")
@@ -68,6 +74,7 @@ def go_home():
 
 
 @config(theme="dark")
+@app.route("/")
 def web_func():
     # start = input("Input your start station：")
     # end = input("Input your end station：")
@@ -81,5 +88,9 @@ def web_func():
     put_button(["Find a New Route"], onclick=lambda: go_home())
 
 
+# path_deploy_http("", port=8080, host="tokyo_metro", index=True)
+
+
 if __name__ == "__main__":
-    start_server(web_func, port=8080, debug=True)
+    webbrowser.open_new("http://192.168.86.248:8080/")
+    start_server(web_func, port=8080, host="0.0.0.0")
