@@ -19,3 +19,12 @@ The project outputs clear and concise instructions in English to guide users thr
 ### PyWebIO Interface:
 
 The front-end interface of the project is built using PyWebIO, a user-friendly library for creating web applications. The Streamlit interface provides an intuitive and interactive experience for users to input their desired start and end stations and receive instructions.
+
+
+## Dependencies
+
+Please install python if not installed already. Open your terminal and navigate to the directory in which this repository is cloned. Then run "pip install -r requirements.txt" in your terminal. This will install all the required dependencies to run the program.
+
+## How to Run
+
+Open your terminal and navigate to the directory in which this repository is cloned. Type "python web_app.py" into your terminal and click enter. A tab should open in your browser with the metro app.
