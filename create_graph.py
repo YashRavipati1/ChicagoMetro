@@ -6,7 +6,6 @@ with open("clean_stations_distance.json") as f:
     data = json.load(f)
 
 graph = nx.Graph()
-count = 0
 
 for node, neighbors in data.items():
     graph.add_node(node)

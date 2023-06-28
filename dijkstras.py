@@ -1,6 +1,6 @@
-import networkx as nx
 import sys
 import json
+import networkx as nx
 
 
 graph = nx.read_graphml("tokyometro.graphml")
@@ -8,8 +8,8 @@ graph = nx.read_graphml("tokyometro.graphml")
 # end = sys.argv[2]
 
 # implement all translation maps
-file_path = "secondary.json"
-with open(file_path, "r") as file:
+FILE_PATH = "secondary.json"
+with open(FILE_PATH, "r") as file:
     secondary = json.load(file)
 tertiary = dict((v, k) for k, v in secondary.items())
 letter_to_line = {
