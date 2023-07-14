@@ -7,10 +7,26 @@ with open("clean_stations_distance.json") as f:
 
 graph = nx.Graph()
 
+color_maps = {
+    "A": "Rose",
+    "I": "Blue",
+    "S": "Leaf",
+    "E": "Magenta",
+    "G": "Orange",
+    "M": "Red",
+    "H": "Silver",
+    "T": "Sky",
+    "C": "Green",
+    "Y": "Gold",
+    "Z": "Purple",
+    "N": "Emerald",
+    "F": "Brown",
+}
+
 for node, neighbors in data.items():
-    graph.add_node(node)
+    graph.add_node(node, color=color_maps[node[0]])
     for neighbor, weight in neighbors.items():
-        graph.add_edge(node, neighbor, weight=weight)
+        graph.add_edge(node, neighbor, weight=weight, color=color_maps[node[0]])
     # count += 1
     # if count == 5:
     #     break
