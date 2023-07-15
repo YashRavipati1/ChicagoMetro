@@ -51,6 +51,30 @@ positions = {
     "C18": [1910, 120, "Green"],
     "C19": [2092, 120, "Green"],
     "C20": [2160, 72, "Green"],
+    "Y01": [108, 220, "Gold"],
+    "Y02": [178, 220, "Gold"],
+    "Y03": [251, 220, "Gold"],
+    "Y04": [316, 220, "Gold"],
+    "Y05": [389, 220, "Gold"],
+    "Y06": [458, 235, "Gold"],
+    "Y07": [525, 304, "Gold"],
+    "Y08": [591, 367, "Gold"],
+    "Y09": [660, 419, "Gold"],
+    "Y10": [754, 486, "Gold"],
+    "Y11": [879, 486, "Gold"],
+    "Y12": [991, 516, "Gold"],
+    "Y13": [1129, 667, "Gold"],
+    "Y14": [1022, 784, "Gold"],
+    "Y15": [1048, 900, "Gold"],
+    "Y16": [1143, 992, "Gold"],
+    "Y17": [1341, 1129, "Gold"],
+    "Y18": [1594, 1129, "Gold"],
+    "Y19": [1700, 1129, "Gold"],
+    "Y20": [1832, 1129, "Gold"],
+    "Y21": [2001, 1129, "Gold"],
+    "Y22": [2100, 1129, "Gold"],
+    "Y23": [2195, 1129, "Gold"],
+    "Y24": [2300, 1129, "Gold"],
 }
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
@@ -60,16 +84,17 @@ for node, neighbors in data.items():
     # Only testing with A line nodes rn
     if "A" not in node:
         if "C" not in node:
-            break
+            if "Y" not in node:
+                continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
         # This right now is to just get the A line
-        if "A" in neighbor or "C" in neighbor:
+        if "A" in neighbor or "C" in neighbor or "Y" in neighbor:
             graph.add_edge(node, neighbor, weight=weight)
 
 graph = nx.relabel_nodes(graph, names)
 nodes = graph.nodes(data=True)
 print(nodes)
 pos = {node: attr["pos"] for node, attr in nodes}
-nx.draw_networkx(graph, pos=pos, node_size=500, node_color="orange")
+nx.draw_networkx(graph, pos=pos, node_size=50, node_color="orange", with_labels=False)
 plt.show()
