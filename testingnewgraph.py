@@ -182,6 +182,20 @@ positions = {
     "T21": [2338, 695, "Sky"],
     "T22": [2367, 661, "Sky"],
     "T23": [2407, 612, "Sky"],
+    "Z01": [570, 1218, "Purple"],
+    "Z02": [823, 1230, "Purple"],
+    "Z03": [901, 1042, "Purple"],
+    "Z04": [1143, 992, "Purple"],
+    "Z05": [1213, 923, "Purple"],
+    "Z06": [1253, 844, "Purple"],
+    "Z07": [1270, 725, "Purple"],
+    "Z08": [1397, 941, "Purple"],
+    "Z09": [1655, 874, "Purple"],
+    "Z10": [1936, 874, "Purple"],
+    "Z11": [1998, 822, "Purple"],
+    "Z12": [2094, 618, "Purple"],
+    "Z13": [2094, 453, "Purple"],
+    "Z14": [2009, 280, "Purple"],
 }
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
