@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import json
 import random
 
-with open("clean_stations_distance.json") as f:
+with open("clean_stations.json") as f:
     data = json.load(f)
 
 with open("secondary.json", "r") as file:
