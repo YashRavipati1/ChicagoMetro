@@ -201,7 +201,7 @@ positions = {
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
-added_lines = ["A", "C", "Y", "I", "T"]
+added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z"]
 for node, neighbors in data.items():
     if all(char not in node for char in added_lines):
         continue
