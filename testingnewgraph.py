@@ -92,5 +92,5 @@ graph = nx.relabel_nodes(graph, names)
 nodes = graph.nodes(data=True)
 print(nodes)
 pos = {node: attr["pos"] for node, attr in nodes}
-nx.draw_networkx(graph, pos=pos, node_size=500, node_color="orange")
+nx.draw_networkx(graph, pos=pos, node_size=50, node_color="0.5", with_labels=False)
 plt.show()
