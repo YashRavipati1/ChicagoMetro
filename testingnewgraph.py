@@ -102,17 +102,40 @@ positions = {
     "I25": [290, 61, "Blue"],
     "I26": [230, 61, "Blue"],
     "I27": [170, 61, "Blue"],
+    "T01": [274, 590, "Sky"],
+    "T02": [442, 590, "Sky"],
+    "T03": [589, 590, "Sky"],
+    "T04": [820, 590, "Sky"],
+    "T05": [935, 590, "Sky"],
+    "T06": [1129, 667, "Sky"],
+    "T07": [1253, 844, "Sky"],
+    "T08": [1305, 904, "Sky"],
+    "T09": [1397, 941, "Sky"],
+    "T10": [1800, 950, "Sky"],
+    "T11": [1906, 952, "Sky"],
+    "T12": [2013, 952, "Sky"],
+    "T13": [2018, 952, "Sky"],
+    "T14": [2112, 917, "Sky"],
+    "T15": [2141, 887, "Sky"],
+    "T16": [2176, 854, "Sky"],
+    "T17": [2206, 825, "Sky"],
+    "T18": [2240, 795, "Sky"],
+    "T19": [2273, 764, "Sky"],
+    "T20": [2303, 724, "Sky"],
+    "T21": [2338, 695, "Sky"],
+    "T22": [2367, 661, "Sky"],
+    "T23": [2407, 612, "Sky"],
 }
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
 for node, neighbors in data.items():
-    if "A" not in node and "C" not in node and "Y" not in node and "I" not in node:
+    if "A" not in node and "C" not in node and "Y" not in node and "I" not in node and "T" not in node:
         continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
-        if "A" in neighbor or "C" in neighbor or "Y" in neighbor or "I" in neighbor:
+        if "A" in neighbor or "C" in neighbor or "Y" in neighbor or "I" in neighbor or "T" in neighbor:
             graph.add_edge(node, neighbor, weight=weight)
 
 nodes = graph.nodes(data=True)
@@ -139,7 +162,7 @@ nx.draw_networkx(
     labels=names,
     node_color=color_map_nodes,
     edge_color=color_map_edges,
-    with_labels=True,
+    with_labels=False,
     font_size=8,
 )
 plt.show()
