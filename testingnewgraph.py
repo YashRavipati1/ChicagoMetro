@@ -217,16 +217,16 @@ color_map_nodes = []
 color_map_edges = []
 for edge in edges:
     if edge[0] and edge[1] in path:
-        color_map_edges.append("orange")
+        color_map_edges.append(positions[edge[1]][2])
     else:
         color_map_edges.append("0.5")
+names = {key: value for key, value in names.items() if key in nodes and key in path}
 for node in graph:
     if node in path:
-        color_map_nodes.append("orange")
+        color_map_nodes.append(positions[node][2])
     else:
         color_map_nodes.append("0.5")
 pos = {node: attr["pos"] for node, attr in nodes}
-names = {key: value for key, value in names.items() if key in nodes and key in path}
 nx.draw_networkx(
     graph,
     pos=pos,
