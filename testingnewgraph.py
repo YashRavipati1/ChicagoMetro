@@ -11,26 +11,26 @@ with open("secondary.json", "r") as file:
 
 graph = nx.Graph()
 positions = {
-    "A01": [206, 1550, "Rose"],
-    "A02": [325, 1550, "Rose"],
-    "A03": [455, 1550, "Rose"],
-    "A04": [570, 1550, "Rose"],
-    "A05": [685, 1550, "Rose"],
-    "A06": [832, 1550, "Rose"],
-    "A07": [972, 1550, "Rose"],
-    "A08": [1153, 1550, "Rose"],
-    "A09": [1475, 1434, "Rose"],
-    "A10": [1598, 1350, "Rose"],
-    "A11": [1800, 1193, "Rose"],
-    "A12": [1800, 1020, "Rose"],
-    "A13": [1800, 950, "Rose"],
-    "A14": [1800, 820, "Rose"],
-    "A15": [1800, 725, "Rose"],
-    "A16": [1800, 608, "Rose"],
-    "A17": [1800, 490, "Rose"],
-    "A18": [1908, 380, "Rose"],
-    "A19": [1950, 325, "Rose"],
-    "A20": [2009, 280, "Rose"],
+    "A01": [206, 1550, "Red"],
+    "A02": [325, 1550, "Red"],
+    "A03": [455, 1550, "Red"],
+    "A04": [570, 1550, "Red"],
+    "A05": [685, 1550, "Red"],
+    "A06": [832, 1550, "Red"],
+    "A07": [972, 1550, "Red"],
+    "A08": [1153, 1550, "Red"],
+    "A09": [1475, 1434, "Red"],
+    "A10": [1598, 1350, "Red"],
+    "A11": [1800, 1193, "Red"],
+    "A12": [1800, 1020, "Red"],
+    "A13": [1800, 950, "Red"],
+    "A14": [1800, 820, "Red"],
+    "A15": [1800, 725, "Red"],
+    "A16": [1800, 608, "Red"],
+    "A17": [1800, 490, "Red"],
+    "A18": [1908, 380, "Red"],
+    "A19": [1950, 325, "Red"],
+    "A20": [2009, 280, "Red"],
     "C01": [365, 1110, "Green"],
     "C02": [408, 1110, "Green"],
     "C03": [620, 1110, "Green"],
@@ -88,16 +88,31 @@ for node, neighbors in data.items():
         if "A" in neighbor or "C" in neighbor or "Y" in neighbor:
             graph.add_edge(node, neighbor, weight=weight)
 
-graph = nx.relabel_nodes(graph, names)
 nodes = graph.nodes(data=True)
-print(nodes)
-path = ["Nishi-magome", "Magome", "Nakanobu"]
-color_map = []
+edges = graph.edges(data=True)
+path = ["A01", "A02", "A03"]
+color_map_nodes = []
+color_map_edges = []
+for edge in edges:
+    if edge[0] and edge[1] in path:
+        color_map_edges.append("orange")
+    else:
+        color_map_edges.append("0.5")
 for node in graph:
     if node in path:
-        color_map.append("orange")
+        color_map_nodes.append("orange")
     else:
-        color_map.append("0.5")
+        color_map_nodes.append("0.5")
 pos = {node: attr["pos"] for node, attr in nodes}
-nx.draw_networkx(graph, pos=pos, node_size=50, node_color=color_map, with_labels=False)
+names = {key: value for key, value in names.items() if key in nodes and key in path}
+nx.draw_networkx(
+    graph,
+    pos=pos,
+    node_size=50,
+    labels=names,
+    node_color=color_map_nodes,
+    edge_color=color_map_edges,
+    with_labels=True,
+    font_size=8,
+)
 plt.show()
