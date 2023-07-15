@@ -1,0 +1,1169 @@
+{
+    "Nishi-Magome": {
+        "A01": [
+            206,
+            1550,
+            "Red"
+        ]
+    },
+    "Magome": {
+        "A02": [
+            325,
+            1550,
+            "Red"
+        ]
+    },
+    "Nakanobu": {
+        "A03": [
+            455,
+            1550,
+            "Red"
+        ]
+    },
+    "Togoshi": {
+        "A04": [
+            570,
+            1550,
+            "Red"
+        ]
+    },
+    "Gotando": {
+        "A05": [
+            685,
+            1550,
+            "Red"
+        ]
+    },
+    "Takanawadai": {
+        "A06": [
+            832,
+            1550,
+            "Red"
+        ]
+    },
+    "Sengakuji": {
+        "A07": [
+            972,
+            1550,
+            "Red"
+        ]
+    },
+    "Mita": {
+        "A08": [
+            1153,
+            1550,
+            "Red"
+        ],
+        "I04": [
+            1153,
+            1550,
+            "Red"
+        ]
+    },
+    "Daimon": {
+        "A09": [
+            1475,
+            1434,
+            "Red"
+        ],
+        "E20": [
+            1475,
+            1434,
+            "Red"
+        ]
+    },
+    "Shimbashi": {
+        "A10": [
+            1598,
+            1350,
+            "Red"
+        ],
+        "G08": [
+            1598,
+            1350,
+            "Red"
+        ]
+    },
+    "Higashi-Ginza": {
+        "A11": [
+            1800,
+            1193,
+            "Red"
+        ]
+    },
+    "Takaracho": {
+        "A12": [
+            1800,
+            1020,
+            "Red"
+        ]
+    },
+    "Nihombashi": {
+        "A13": [
+            1800,
+            950,
+            "Red"
+        ],
+        "G11": [
+            1800,
+            950,
+            "Red"
+        ],
+        "T10": [
+            1800,
+            950,
+            "Red"
+        ]
+    },
+    "Ningyocho": {
+        "A14": [
+            1800,
+            820,
+            "Red"
+        ]
+    },
+    "Higashi-Nihombashi": {
+        "A15": [
+            1800,
+            725,
+            "Red"
+        ]
+    },
+    "Asakusabashi": {
+        "A16": [
+            1800,
+            608,
+            "Red"
+        ]
+    },
+    "Kuramae": {
+        "A17": [
+            1800,
+            490,
+            "Red"
+        ],
+        "E11": [
+            1800,
+            490,
+            "Red"
+        ]
+    },
+    "Asakusa": {
+        "A18": [
+            1908,
+            380,
+            "Red"
+        ],
+        "G19": [
+            1908,
+            380,
+            "Red"
+        ]
+    },
+    "Honjo-Azumabashi": {
+        "A19": [
+            1950,
+            325,
+            "Red"
+        ]
+    },
+    "Oshiage <Skytree>": {
+        "A20": [
+            2009,
+            280,
+            "Red"
+        ]
+    },
+    "Yoyogi-Uehara": {
+        "C01": [
+            365,
+            1110,
+            "Green"
+        ]
+    },
+    "Yoyogi-Koen": {
+        "C02": [
+            408,
+            1110,
+            "Green"
+        ]
+    },
+    "Meiji-Jingumae <Harajuku>": {
+        "C03": [
+            620,
+            1110,
+            "Green"
+        ]
+    },
+    "Omote-Sando": {
+        "C04": [
+            823,
+            1230,
+            "Green"
+        ]
+    },
+    "Nogizaka": {
+        "C05": [
+            915,
+            1230,
+            "Green"
+        ]
+    },
+    "Akasaka": {
+        "C06": [
+            1037,
+            1230,
+            "Green"
+        ]
+    },
+    "Kokkai-Gijidomae": {
+        "C07": [
+            1225,
+            1230,
+            "Green"
+        ]
+    },
+    "Kasumigaseki": {
+        "C08": [
+            1360,
+            1230,
+            "Green"
+        ]
+    },
+    "Hibiya": {
+        "C09": [
+            1526,
+            1185,
+            "Green"
+        ],
+        "I08": [
+            1526,
+            1185,
+            "Green"
+        ]
+    },
+    "Nijubashimae <Marunouchi>": {
+        "C10": [
+            1397,
+            1010,
+            "Green"
+        ]
+    },
+    "Otemachi": {
+        "C11": [
+            1397,
+            941,
+            "Green"
+        ],
+        "I09": [
+            1397,
+            941,
+            "Green"
+        ],
+        "T09": [
+            1397,
+            941,
+            "Green"
+        ]
+    },
+    "Shin-Ochanomizu": {
+        "C12": [
+            1397,
+            725,
+            "Green"
+        ]
+    },
+    "Yushima": {
+        "C13": [
+            1397,
+            525,
+            "Green"
+        ]
+    },
+    "Nezu": {
+        "C14": [
+            1397,
+            420,
+            "Green"
+        ]
+    },
+    "Sendagi": {
+        "C15": [
+            1397,
+            335,
+            "Green"
+        ]
+    },
+    "Nishi-Nippori": {
+        "C16": [
+            1397,
+            230,
+            "Green"
+        ]
+    },
+    "Machiya": {
+        "C17": [
+            1550,
+            120,
+            "Green"
+        ]
+    },
+    "Kita-Senju": {
+        "C18": [
+            1910,
+            120,
+            "Green"
+        ]
+    },
+    "Ayase": {
+        "C19": [
+            2092,
+            120,
+            "Green"
+        ]
+    },
+    "Kita-Ayase": {
+        "C20": [
+            2160,
+            72,
+            "Green"
+        ]
+    },
+    "Shinjuku-Nishiguchi": {
+        "E01": [
+            543,
+            824,
+            "Magenta"
+        ]
+    },
+    "Hagashi-Shinjuku": {
+        "E02": [
+            650,
+            715,
+            "Magenta"
+        ]
+    },
+    "Wakamatsu-Kawada": {
+        "E03": [
+            783,
+            676,
+            "Magenta"
+        ]
+    },
+    "Ushigome-Yanagicho": {
+        "E04": [
+            875,
+            676,
+            "Magenta"
+        ]
+    },
+    "Ushigome-Kagurazaka": {
+        "E05": [
+            964,
+            676,
+            "Magenta"
+        ]
+    },
+    "Lidabashi": {
+        "E06": [
+            1117,
+            664,
+            "Magenta"
+        ]
+    },
+    "Kasuga": {
+        "E07": [
+            1231,
+            489,
+            "Magenta"
+        ],
+        "I12": [
+            1231,
+            489,
+            "Magenta"
+        ]
+    },
+    "Hongo-Sanchome": {
+        "E08": [
+            1321,
+            489,
+            "Magenta"
+        ]
+    },
+    "Ueno-Okachimachi": {
+        "E09": [
+            1563,
+            489,
+            "Magenta"
+        ]
+    },
+    "Shin-Okachimachi": {
+        "E10": [
+            1712,
+            489,
+            "Magenta"
+        ]
+    },
+    "Ryogoku": {
+        "E12": [
+            1962,
+            589,
+            "Magenta"
+        ]
+    },
+    "Morishita": {
+        "E13": [
+            1998,
+            726,
+            "Magenta"
+        ]
+    },
+    "Kiyosumi": {
+        "E14": [
+            1998,
+            822,
+            "Magenta"
+        ]
+    },
+    "Monzen-Nakacho": {
+        "E15": [
+            1997,
+            950,
+            "Magenta"
+        ],
+        "T12": [
+            1997,
+            950,
+            "Magenta"
+        ]
+    },
+    "Tsukishima": {
+        "E16": [
+            1997,
+            1124,
+            "Magenta"
+        ],
+        "Y21": [
+            1997,
+            1124,
+            "Magenta"
+        ]
+    },
+    "Kachidoki": {
+        "E17": [
+            1949,
+            1259,
+            "Magenta"
+        ]
+    },
+    "Tsukijishijo": {
+        "E18": [
+            1868,
+            1346,
+            "Magenta"
+        ]
+    },
+    "Shiodome": {
+        "E19": [
+            1624,
+            1432,
+            "Magenta"
+        ]
+    },
+    "Akabanebashi": {
+        "E21": [
+            1218,
+            1429,
+            "Magenta"
+        ]
+    },
+    "Azabu-Juban": {
+        "E22": [
+            1059,
+            1429,
+            "Magenta"
+        ]
+    },
+    "Roppongi": {
+        "E23": [
+            955,
+            1320,
+            "Magenta"
+        ]
+    },
+    "Aoyama-Itchome": {
+        "E24": [
+            901,
+            1042,
+            "Magenta"
+        ],
+        "G04": [
+            901,
+            1042,
+            "Magenta"
+        ]
+    },
+    "Kokuritsu-Kyogijo": {
+        "E25": [
+            742,
+            1011,
+            "Magenta"
+        ]
+    },
+    "Yoyogi": {
+        "E26": [
+            576,
+            1013,
+            "Magenta"
+        ]
+    },
+    "Shinjuku": {
+        "E27": [
+            577,
+            920,
+            "Magenta"
+        ]
+    },
+    "Tochomae": {
+        "E28": [
+            467,
+            883,
+            "Magenta"
+        ]
+    },
+    "Nishi-Shinjuku-Gochome": {
+        "E29": [
+            394,
+            886,
+            "Magenta"
+        ]
+    },
+    "Nakano-Sakaue": {
+        "E30": [
+            394,
+            822,
+            "Magenta"
+        ]
+    },
+    "Higashi-Nakano": {
+        "E31": [
+            392,
+            680,
+            "Magenta"
+        ]
+    },
+    "Nakai": {
+        "E32": [
+            362,
+            548,
+            "Magenta"
+        ]
+    },
+    "Ochiai-Minami-Nagasaki": {
+        "E33": [
+            305,
+            507,
+            "Magenta"
+        ]
+    },
+    "Shin-Egato": {
+        "E34": [
+            269,
+            471,
+            "Magenta"
+        ]
+    },
+    "Netima": {
+        "E35": [
+            222,
+            423,
+            "Magenta"
+        ]
+    },
+    "Toshimaen": {
+        "E36": [
+            170,
+            379,
+            "Magenta"
+        ]
+    },
+    "Naerima-Kasugacho": {
+        "E37": [
+            130,
+            335,
+            "Magenta"
+        ]
+    },
+    "Hikarigaoka": {
+        "E38": [
+            93,
+            299,
+            "Magenta"
+        ]
+    },
+    "Shibuya": {
+        "G01": [
+            634,
+            1220,
+            "Orange"
+        ]
+    },
+    "Ometo-Sando": {
+        "G02": [
+            823,
+            1230,
+            "Orange"
+        ]
+    },
+    "Gaiemmae": {
+        "G03": [
+            891,
+            1113,
+            "Orange"
+        ]
+    },
+    "Akasaka-Mitsuke": {
+        "G05": [
+            1143,
+            992,
+            "Orange"
+        ]
+    },
+    "Tameiki-Sanno": {
+        "G06": [
+            1225,
+            1230,
+            "Orange"
+        ]
+    },
+    "Toranomon Hills": {
+        "G07": [
+            1300,
+            1335,
+            "Orange"
+        ]
+    },
+    "Ginza": {
+        "G09": [
+            1700,
+            1129,
+            "Orange"
+        ]
+    },
+    "Kyobashi": {
+        "G10": [
+            1734,
+            1022,
+            "Orange"
+        ]
+    },
+    "Mitsukoshimae": {
+        "G12": [
+            1655,
+            874,
+            "Orange"
+        ]
+    },
+    "Kanda": {
+        "G13": [
+            1581,
+            774,
+            "Orange"
+        ]
+    },
+    "Suehirocho": {
+        "G14": [
+            1572,
+            597,
+            "Orange"
+        ]
+    },
+    "Ueno-Hirokoji": {
+        "G15": [
+            1563,
+            489,
+            "Orange"
+        ]
+    },
+    "Ueno": {
+        "G16": [
+            1580,
+            376,
+            "Orange"
+        ]
+    },
+    "Inaricho": {
+        "G17": [
+            1701,
+            379,
+            "Orange"
+        ]
+    },
+    "Tawaramachi": {
+        "G18": [
+            1778,
+            378,
+            "Orange"
+        ]
+    },
+    "Meguro": {
+        "I01": [
+            574,
+            1425,
+            "Blue"
+        ]
+    },
+    "Shirokanedai": {
+        "I02": [
+            730,
+            1425,
+            "Blue"
+        ]
+    },
+    "Shirokane-Takanawa": {
+        "I03": [
+            890,
+            1425,
+            "Blue"
+        ]
+    },
+    "Shibakoen": {
+        "I05": [
+            1321,
+            1490,
+            "Blue"
+        ]
+    },
+    "Onairimon": {
+        "I06": [
+            1432,
+            1379,
+            "Blue"
+        ]
+    },
+    "Uchisaiwaicho": {
+        "I07": [
+            1498,
+            1291,
+            "Blue"
+        ]
+    },
+    "Jimbocho": {
+        "I10": [
+            1270,
+            725,
+            "Blue"
+        ]
+    },
+    "Suidobashi": {
+        "I11": [
+            1270,
+            615,
+            "Blue"
+        ]
+    },
+    "Hakusan": {
+        "I13": [
+            1104,
+            391,
+            "Blue"
+        ]
+    },
+    "Sengoku": {
+        "I14": [
+            1054,
+            338,
+            "Blue"
+        ]
+    },
+    "Sugamo": {
+        "I15": [
+            1004,
+            280,
+            "Blue"
+        ]
+    },
+    "Nishi-Sugamo": {
+        "I16": [
+            923,
+            236,
+            "Blue"
+        ]
+    },
+    "Shin-Itabashi": {
+        "I17": [
+            772,
+            236,
+            "Blue"
+        ]
+    },
+    "Itabashi-Kuyakushomae": {
+        "I18": [
+            708,
+            236,
+            "Blue"
+        ]
+    },
+    "Itabashihoncho": {
+        "I19": [
+            641,
+            206,
+            "Blue"
+        ]
+    },
+    "Motohasunuma": {
+        "I20": [
+            591,
+            157,
+            "Blue"
+        ]
+    },
+    "Shinmura-Sakaue": {
+        "I21": [
+            548,
+            112,
+            "Blue"
+        ]
+    },
+    "Shgimura-Sanchome": {
+        "I22": [
+            474,
+            61,
+            "Blue"
+        ]
+    },
+    "Hasuna": {
+        "I23": [
+            413,
+            61,
+            "Blue"
+        ]
+    },
+    "Nishidai": {
+        "I24": [
+            350,
+            61,
+            "Blue"
+        ]
+    },
+    "Takashimadaira": {
+        "I25": [
+            290,
+            61,
+            "Blue"
+        ]
+    },
+    "Shin-Takashimadaira": {
+        "I26": [
+            230,
+            61,
+            "Blue"
+        ]
+    },
+    "Nishi-Takashimadaira": {
+        "I27": [
+            170,
+            61,
+            "Blue"
+        ]
+    },
+    "Nakano": {
+        "T01": [
+            274,
+            590,
+            "Sky"
+        ]
+    },
+    "Ochiai": {
+        "T02": [
+            442,
+            590,
+            "Sky"
+        ]
+    },
+    "Takadanobaba": {
+        "T03": [
+            589,
+            590,
+            "Sky"
+        ]
+    },
+    "Waseda": {
+        "T04": [
+            820,
+            590,
+            "Sky"
+        ]
+    },
+    "Kagurazaka": {
+        "T05": [
+            935,
+            590,
+            "Sky"
+        ]
+    },
+    "Iidabashi": {
+        "T06": [
+            1129,
+            667,
+            "Sky"
+        ],
+        "Y13": [
+            1129,
+            667,
+            "Sky"
+        ]
+    },
+    "Kudanshita": {
+        "T07": [
+            1253,
+            844,
+            "Sky"
+        ]
+    },
+    "Takebashi": {
+        "T08": [
+            1305,
+            904,
+            "Sky"
+        ]
+    },
+    "Kayabacho": {
+        "T11": [
+            1906,
+            952,
+            "Sky"
+        ]
+    },
+    "Kiba": {
+        "T13": [
+            2018,
+            952,
+            "Sky"
+        ]
+    },
+    "Toyocho": {
+        "T14": [
+            2112,
+            917,
+            "Sky"
+        ]
+    },
+    "Minami-Sunamachi": {
+        "T15": [
+            2141,
+            887,
+            "Sky"
+        ]
+    },
+    "Nishi-Kasai": {
+        "T16": [
+            2176,
+            854,
+            "Sky"
+        ]
+    },
+    "Kasai": {
+        "T17": [
+            2206,
+            825,
+            "Sky"
+        ]
+    },
+    "Urayasu": {
+        "T18": [
+            2240,
+            795,
+            "Sky"
+        ]
+    },
+    "Minami-Gyotoku": {
+        "T19": [
+            2273,
+            764,
+            "Sky"
+        ]
+    },
+    "Gyotoku": {
+        "T20": [
+            2303,
+            724,
+            "Sky"
+        ]
+    },
+    "Myoden": {
+        "T21": [
+            2338,
+            695,
+            "Sky"
+        ]
+    },
+    "Baraki-Nakayama": {
+        "T22": [
+            2367,
+            661,
+            "Sky"
+        ]
+    },
+    "Nishi-Funabashi": {
+        "T23": [
+            2407,
+            612,
+            "Sky"
+        ]
+    },
+    "Wakoshi": {
+        "Y01": [
+            108,
+            220,
+            "Gold"
+        ]
+    },
+    "Chikatetsu-Narimasu": {
+        "Y02": [
+            178,
+            220,
+            "Gold"
+        ]
+    },
+    "Chikatetsu-Akatsuka": {
+        "Y03": [
+            251,
+            220,
+            "Gold"
+        ]
+    },
+    "Heiwadai": {
+        "Y04": [
+            316,
+            220,
+            "Gold"
+        ]
+    },
+    "Hikawadai": {
+        "Y05": [
+            389,
+            220,
+            "Gold"
+        ]
+    },
+    "Kotake-Mukaihara": {
+        "Y06": [
+            458,
+            235,
+            "Gold"
+        ]
+    },
+    "Senkawa": {
+        "Y07": [
+            525,
+            304,
+            "Gold"
+        ]
+    },
+    "Kanamecho": {
+        "Y08": [
+            591,
+            367,
+            "Gold"
+        ]
+    },
+    "Ikebukuro": {
+        "Y09": [
+            660,
+            419,
+            "Gold"
+        ]
+    },
+    "Higashi-Ikebukuro": {
+        "Y10": [
+            754,
+            486,
+            "Gold"
+        ]
+    },
+    "Gokokuji": {
+        "Y11": [
+            879,
+            486,
+            "Gold"
+        ]
+    },
+    "Edogawabashi": {
+        "Y12": [
+            991,
+            516,
+            "Gold"
+        ]
+    },
+    "Ichigaya": {
+        "Y14": [
+            1022,
+            784,
+            "Gold"
+        ]
+    },
+    "Kojimachi": {
+        "Y15": [
+            1048,
+            900,
+            "Gold"
+        ]
+    },
+    "Nagatacho": {
+        "Y16": [
+            1143,
+            992,
+            "Gold"
+        ]
+    },
+    "Sakuradamon": {
+        "Y17": [
+            1341,
+            1129,
+            "Gold"
+        ]
+    },
+    "Yurakucho": {
+        "Y18": [
+            1526,
+            1185,
+            "Gold"
+        ]
+    },
+    "Ginza-Itchome": {
+        "Y19": [
+            1700,
+            1129,
+            "Gold"
+        ]
+    },
+    "Shintomicho": {
+        "Y20": [
+            1832,
+            1129,
+            "Gold"
+        ]
+    },
+    "Toyosu": {
+        "Y22": [
+            2100,
+            1129,
+            "Gold"
+        ]
+    },
+    "Tatsumi": {
+        "Y23": [
+            2195,
+            1129,
+            "Gold"
+        ]
+    },
+    "Shin-Kiba": {
+        "Y24": [
+            2300,
+            1129,
+            "Gold"
+        ]
+    }
+}
