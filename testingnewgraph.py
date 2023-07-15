@@ -75,17 +75,44 @@ positions = {
     "Y22": [2100, 1129, "Gold"],
     "Y23": [2195, 1129, "Gold"],
     "Y24": [2300, 1129, "Gold"],
+    "I01": [574, 1425, "Blue"],
+    "I02": [730, 1425, "Blue"],
+    "I03": [890, 1425, "Blue"],
+    "I04": [1153, 1550, "Blue"],
+    "I05": [1321, 1490, "Blue"],
+    "I06": [1432, 1379, "Blue"],
+    "I07": [1498, 1291, "Blue"],
+    "I08": [1526, 1185, "Blue"],
+    "I09": [1397, 941, "Blue"],
+    "I10": [1270, 725, "Blue"],
+    "I11": [1270, 615, "Blue"],
+    "I12": [1201, 488, "Blue"],
+    "I13": [1104, 391, "Blue"],
+    "I14": [1054, 338, "Blue"],
+    "I15": [1004, 280, "Blue"],
+    "I16": [923, 236, "Blue"],
+    "I17": [772, 236, "Blue"],
+    "I18": [708, 236, "Blue"],
+    "I19": [641, 206, "Blue"],
+    "I20": [591, 157, "Blue"],
+    "I21": [548, 112, "Blue"],
+    "I22": [474, 61, "Blue"],
+    "I23": [413, 61, "Blue"],
+    "I24": [350, 61, "Blue"],
+    "I25": [290, 61, "Blue"],
+    "I26": [230, 61, "Blue"],
+    "I27": [170, 61, "Blue"],
 }
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
 for node, neighbors in data.items():
-    if "A" not in node and "C" not in node and "Y" not in node:
+    if "A" not in node and "C" not in node and "Y" not in node and "I" not in node:
         continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
-        if "A" in neighbor or "C" in neighbor or "Y" in neighbor:
+        if "A" in neighbor or "C" in neighbor or "Y" in neighbor or "I" in neighbor:
             graph.add_edge(node, neighbor, weight=weight)
 
 nodes = graph.nodes(data=True)
