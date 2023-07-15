@@ -89,25 +89,6 @@ positions = {
     "E36": [170, 379, "Magenta"],
     "E37": [130, 335, "Magenta"],
     "E38": [93, 299, "Magenta"],
-    "G01": [634, 1220, "Orange"],
-    "G02": [789, 1217, "Orange"],
-    "G03": [891, 1113, "Orange"],
-    "G04": [969, 1038, "Orange"],
-    "G05": [1069, 1041, "Orange"],
-    "G06": [1156, 1178, "Orange"],
-    "G07": [1300, 1335, "Orange"],
-    "G08": [1630, 1350, "Orange"],
-    "G09": [1735, 1195, "Orange"],
-    "G10": [1734, 1022, "Orange"],
-    "G11": [1734, 949, "Orange"],
-    "G12": [1655, 874, "Orange"],
-    "G13": [1581, 774, "Orange"],
-    "G14": [1572, 597, "Orange"],
-    "G15": [1565, 512, "Orange"],
-    "G16": [1580, 376, "Orange"],
-    "G17": [1701, 379, "Orange"],
-    "G18": [1778, 378, "Orange"],
-    "G19": [1874, 382, "Orange"],
     "Y01": [108, 220, "Gold"],
     "Y02": [178, 220, "Gold"],
     "Y03": [251, 220, "Gold"],
@@ -187,12 +168,13 @@ positions = {
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
+added_lines = ["A", "C", "Y", "I", "T"]
 for node, neighbors in data.items():
-    if "A" not in node and "C" not in node and "Y" not in node and "I" not in node and "T" not in node:
+    if all(char not in node for char in added_lines):
         continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
-        if "A" in neighbor or "C" in neighbor or "Y" in neighbor or "I" in neighbor or "T" in neighbor:
+        if any(char in neighbor for char in added_lines):
             graph.add_edge(node, neighbor, weight=weight)
 
 nodes = graph.nodes(data=True)
