@@ -91,6 +91,13 @@ for node, neighbors in data.items():
 graph = nx.relabel_nodes(graph, names)
 nodes = graph.nodes(data=True)
 print(nodes)
+path = ["Nishi-magome", "Magome", "Nakanobu"]
+color_map = []
+for node in graph:
+    if node in path:
+        color_map.append("orange")
+    else:
+        color_map.append("0.5")
 pos = {node: attr["pos"] for node, attr in nodes}
-nx.draw_networkx(graph, pos=pos, node_size=50, node_color="0.5", with_labels=False)
+nx.draw_networkx(graph, pos=pos, node_size=50, node_color=color_map, with_labels=False)
 plt.show()
