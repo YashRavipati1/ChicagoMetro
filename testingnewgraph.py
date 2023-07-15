@@ -81,14 +81,10 @@ for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
 for node, neighbors in data.items():
-    # Only testing with A line nodes rn
-    if "A" not in node:
-        if "C" not in node:
-            if "Y" not in node:
-                continue
+    if "A" not in node and "C" not in node and "Y" not in node:
+        continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
-        # This right now is to just get the A line
         if "A" in neighbor or "C" in neighbor or "Y" in neighbor:
             graph.add_edge(node, neighbor, weight=weight)
 
@@ -96,5 +92,5 @@ graph = nx.relabel_nodes(graph, names)
 nodes = graph.nodes(data=True)
 print(nodes)
 pos = {node: attr["pos"] for node, attr in nodes}
-nx.draw_networkx(graph, pos=pos, node_size=50, node_color="orange", with_labels=False)
+nx.draw_networkx(graph, pos=pos, node_size=50, node_color="0.5", with_labels=False)
 plt.show()
