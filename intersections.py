@@ -15,7 +15,7 @@ import json
 # calculate coordinates #
 # setup
 BR_CORNER_COORD = (2526,  1785)     # using traditional pixel position as matrix
-COORDS_PATH = './pixels.json'
+COORDS_PATH = './station_positions.json'
 STATIONS_PATH = './secondary.json'
 SCALE = 1
 
@@ -29,17 +29,17 @@ with open(STATIONS_PATH, 'r') as f:
     stations_dict = json.load(f)
 
 # calculate positions
+graph = nx.read_graphml('tokyometro.graphml')
 coords = dict()     # stores station name : position
 for station_id, station_name in stations_dict.items():
     # force string match
-    station_name = station_name.title()
+    # station_name = station_name.title()
 
     # control for missing lines
     try:
         coords_dict[station_id]
     except:
         continue
-        
 
     # check already calculated
     if station_name in coords:
@@ -47,6 +47,11 @@ for station_id, station_name in stations_dict.items():
         if coords_dict[station_id][0:1] != list(coords[station_name].values())[0][0:1]:
             print(station_id, coords_dict[station_id])
             print(coords[station_name])
+        
+        # check neighbors
+        if set(graph.neighbors(station_id)) != set(graph.neighbors(list(coords[station_name].keys())[0])):
+            print(station_name)
+            print(set(graph.neighbors(station_id)), set(graph.neighbors(list(coords[station_name].keys())[0])))
 
         # force correct mistakes
         coords[station_name][station_id] = list(coords[station_name].values())[0]

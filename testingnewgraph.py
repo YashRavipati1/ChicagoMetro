@@ -1,8 +1,11 @@
+# ----------- libraries import ----------- #
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
-import random
+from dijkstras import *
 
+
+# ----------- load files ----------- #
 with open("clean_stations.json") as f:
     data = json.load(f)
 
@@ -241,23 +244,62 @@ for node, neighbors in data.items():
         if any(char in neighbor for char in added_lines):
             graph.add_edge(node, neighbor, weight=weight)
 
+
+
+# ----------- find path ----------- #
+# get path #
+# path = ["A01", "A02", "A03"]
+path = dijkstra(graph, 'A01', 'M25')[1]
+
+
+# convert to station names #
+# load stations lookup
+with open('full_intersections.json', 'r') as f:
+    station_lookup = json.load(f)
+
+# modify lookup to congregate names
+station_lookup = {k: list(v.keys()) for k, v in station_lookup.items()}
+
+# replace
+path_expanded = []
+for station in path:
+    # get associated stations
+    station_name = names[station]
+    intersecting_stations = station_lookup[station_name]
+
+    # add
+    path_expanded += intersecting_stations
+
+
+# ----------- draw map ----------- #
+# get attributes #
 nodes = graph.nodes(data=True)
 edges = graph.edges(data=True)
-path = ["A01", "A02", "A03"]
 color_map_nodes = []
 color_map_edges = []
+
+# edge colors for only path
 for edge in edges:
-    if edge[0] and edge[1] in path:
-        color_map_edges.append(positions[edge[1]][2])
+    if edge[0] and edge[1] in path_expanded:
+        color_map_edges.append(positions[edge[0]][2])
     else:
         color_map_edges.append("0.5")
+
+# labels
 names = {key: value for key, value in names.items() if key in nodes and key in path}
+
+# node colors for only path
 for node in graph:
-    if node in path:
+    if node in path_expanded:
         color_map_nodes.append(positions[node][2])
     else:
         color_map_nodes.append("0.5")
-pos = {node: attr["pos"] for node, attr in nodes}
+
+# positions
+# pos = {node: attr["pos"] for node, attr in nodes}
+pos = nx.get_node_attributes(graph, 'pos')
+
+# draw graph #
 nx.draw_networkx(
     graph,
     pos=pos,
@@ -269,16 +311,9 @@ nx.draw_networkx(
     font_size=8,
 )
 
-# # show metro map #
-# # scale relative positions
-# coords = {k: v * SCALE for k, v in coords.items()}
-
-# # get path
-# path = dijkstras()
-
+# show metro map #
 # edge_colors = nx.get_edge_attributes(graph, 'color').values()
 # node_colors = nx.get_node_attributes(graph, 'color').values()
-# widths = nx.get_edge_attributes(graph, 'weight')
 
 # nx.draw_networkx(
 #     graph,
@@ -289,7 +324,5 @@ nx.draw_networkx(
 #     edge_color=edge_colors,
 #     with_labels=True
 # )
-# # nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
-# plt.show()
 
 plt.show()
