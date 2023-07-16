@@ -39,9 +39,10 @@ for station_id, station_name in stations_dict.items():
         continue
         
     if station_name in coords:
-        print(station_name, station_id)
+        if coords_dict[station_id][0:1] != list(coords[station_name].values())[0][0:1]:
+            print(station_id, coords_dict[station_id])
+            print(coords[station_name])
         coords[station_name][station_id] = list(coords[station_name].values())[0]
-        print(coords[station_name])
     else:
         coords[station_name] = dict()
         coords[station_name][station_id] = coords_dict[station_id]
