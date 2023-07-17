@@ -20,6 +20,8 @@ Emerald = "#00ad9b"
 Leaf = "#7ab728"
 Rose = "#ed6c64"
 Silver = "0.5"
+BASE = "0.0"
+
 positions = {
     "A01": [206, 1550, Rose],
     "A02": [325, 1550, Rose],
@@ -359,8 +361,8 @@ for station in path:
 # get attributes #
 nodes = graph.nodes(data=True)
 edges = graph.edges(data=True)
-color_map_nodes = ["0.5"] * len(nodes)
-color_map_edges = ["0.5"] * len(edges)
+color_map_nodes = [BASE] * len(nodes)
+color_map_edges = [BASE] * len(edges)
 
 # labels
 names_path = {
