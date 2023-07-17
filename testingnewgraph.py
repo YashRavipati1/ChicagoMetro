@@ -19,6 +19,7 @@ with open("station_positions.json", "r") as f:
 Emerald = "#00ad9b"
 Leaf = "#7ab728"
 Rose = "#ed6c64"
+Silver = "0.5"
 positions = {
     "A01": [206, 1550, Rose],
     "A02": [325, 1550, Rose],
@@ -272,14 +273,52 @@ positions = {
     "S18": [2296, 441, Leaf],
     "S19": [2328, 410, Leaf],
     "S20": [2358, 381, Leaf],
-    "S21": [2358, 321, Leaf]
+    "S21": [2358, 321, Leaf],
+    "F01": [108, 220, "Brown"],
+    "F02": [178, 220, "Brown"],
+    "F03": [251, 220, "Brown"],
+    "F04": [316, 220, "Brown"],
+    "F05": [389, 220, "Brown"],
+    "F06": [458, 235, "Brown"],
+    "F07": [525, 304, "Brown"],
+    "F08": [591, 367, "Brown"],
+    "F09": [660, 419, "Brown"],
+    "F10": [660, 532, "Brown"],
+    "F11": [660, 630, "Brown"],
+    "F12": [650, 715, "Brown"],
+    "F13": [739, 889, "Brown"],
+    "F14": [620, 1051, "Brown"],
+    "F15": [620, 1110, "Brown"],
+    "F16": [634, 1220, "Brown"],
+    "H01": [459, 1320, Silver],
+    "H02": [586, 1320, Silver],
+    "H03": [754, 1320, Silver],
+    "H04": [955, 1320, Silver],
+    "H05": [1173, 1335, Silver],
+    "H06": [1300, 1335, Silver],
+    "H07": [1360, 1230, Silver],
+    "H08": [1526, 1185, Silver],
+    "H09": [1700, 1129, Silver],
+    "H10": [1800, 1193, Silver],
+    "H11": [1832, 1129, Silver],
+    "H12": [1832, 1044, Silver],
+    "H13": [1906, 952, Silver],
+    "H14": [1800, 820, Silver],
+    "H15": [1648, 787, Silver],
+    "H16": [1655, 725, Silver],
+    "H17": [1563, 490, Silver],
+    "H18": [1580, 376, Silver],
+    "H19": [1614, 291, Silver],
+    "H20": [1663, 243, Silver],
+    "H21": [1720, 188, Silver],
+    "H22": [1910, 120, Silver]
 }
 
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
-added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N", "S"]
+added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N", "S", "F", "H"]
 for node, neighbors in data.items():
     if all(char not in node for char in added_lines):
         continue
@@ -292,7 +331,7 @@ for node, neighbors in data.items():
 # ----------- find path ----------- #
 # get path #
 # path = ["A01", "A02", "A03"]
-path = dijkstra(graph, "A01", "M25")[1]
+path = dijkstra(graph, "A01", "C20")[1]
 
 
 # convert to station names #
