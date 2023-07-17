@@ -15,6 +15,8 @@ with open("secondary.json", "r") as f:
 graph = nx.Graph()
 with open("station_positions.json", "r") as f:
     positions = json.load(f)
+
+Emerald = "#00ad9b"
 positions = {
     "A01": [206, 1550, "Red"],
     "A02": [325, 1550, "Red"],
@@ -229,13 +231,32 @@ positions = {
     "Z12": [2094, 618, "Purple"],
     "Z13": [2094, 453, "Purple"],
     "Z14": [2009, 280, "Purple"],
+    "N01": [574, 1425, Emerald],
+    "N02": [730, 1425, Emerald],
+    "N03": [890, 1425, Emerald],
+    "N04": [1059, 1429, Emerald],
+    "N05": [1148, 1290, Emerald],
+    "N06": [1225, 1230, Emerald],
+    "N07": [1143, 992, Emerald],
+    "N08": [946, 889, Emerald],
+    "N09": [1022, 784, Emerald],
+    "N10": [1129, 667, Emerald],
+    "N11": [1201, 490, Emerald],
+    "N12": [1166, 404, Emerald],
+    "N13": [1166, 350, Emerald],
+    "N14": [1166, 282, Emerald],
+    "N15": [1166, 220, Emerald],
+    "N16": [1130, 167, Emerald],
+    "N17": [1054, 111, Emerald],
+    "N18": [986, 111, Emerald],
+    "N19": [901, 111, Emerald],
 }
 
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
-added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M"]
+added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N"]
 for node, neighbors in data.items():
     if all(char not in node for char in added_lines):
         continue
