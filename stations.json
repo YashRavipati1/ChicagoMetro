@@ -1231,6 +1231,13 @@
                     "target_id": "N11",
                     "type": "walk",
                     "type_id": 0
+                },
+                {
+                    "distance": 0.0,
+                    "duration": -1,
+                    "target_id": "M22",
+                    "type": "walk",
+                    "type_id": 0
                 }
             ],
             "name_en": "Kasuga",
@@ -4332,13 +4339,6 @@
                     "target_id": "M12",
                     "type": "ride",
                     "type_id": 1
-                },
-                {
-                    "distance": 0.0,
-                    "duration": -1,
-                    "target_id": "N11",
-                    "type": "walk",
-                    "type_id": 0
                 }
             ],
             "name_en": "Yotsuya-sanchome",
@@ -4690,6 +4690,20 @@
                     "distance": 0.0,
                     "duration": -1,
                     "target_id": "I12",
+                    "type": "walk",
+                    "type_id": 0
+                },
+                {
+                    "distance": 0.0,
+                    "duration": -1,
+                    "target_id": "N11",
+                    "type": "walk",
+                    "type_id": 0
+                },
+                {
+                    "distance": 0.0,
+                    "duration": -1,
+                    "target_id": "E07",
                     "type": "walk",
                     "type_id": 0
                 }
@@ -5162,7 +5176,7 @@
                 {
                     "distance": 0.0,
                     "duration": -1,
-                    "target_id": "M11",
+                    "target_id": "M22",
                     "type": "walk",
                     "type_id": 0
                 }

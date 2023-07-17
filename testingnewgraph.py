@@ -18,27 +18,28 @@ with open("station_positions.json", "r") as f:
 
 Emerald = "#00ad9b"
 Leaf = "#7ab728"
+Rose = "#ed6c64"
 positions = {
-    "A01": [206, 1550, "Red"],
-    "A02": [325, 1550, "Red"],
-    "A03": [455, 1550, "Red"],
-    "A04": [570, 1550, "Red"],
-    "A05": [685, 1550, "Red"],
-    "A06": [832, 1550, "Red"],
-    "A07": [972, 1550, "Red"],
-    "A08": [1153, 1550, "Red"],
-    "A09": [1475, 1434, "Red"],
-    "A10": [1598, 1350, "Red"],
-    "A11": [1800, 1193, "Red"],
-    "A12": [1800, 1020, "Red"],
-    "A13": [1800, 950, "Red"],
-    "A14": [1800, 820, "Red"],
-    "A15": [1800, 725, "Red"],
-    "A16": [1800, 608, "Red"],
-    "A17": [1800, 490, "Red"],
-    "A18": [1908, 380, "Red"],
-    "A19": [1950, 325, "Red"],
-    "A20": [2009, 280, "Red"],
+    "A01": [206, 1550, Rose],
+    "A02": [325, 1550, Rose],
+    "A03": [455, 1550, Rose],
+    "A04": [570, 1550, Rose],
+    "A05": [685, 1550, Rose],
+    "A06": [832, 1550, Rose],
+    "A07": [972, 1550, Rose],
+    "A08": [1153, 1550, Rose],
+    "A09": [1475, 1434, Rose],
+    "A10": [1598, 1350, Rose],
+    "A11": [1800, 1193, Rose],
+    "A12": [1800, 1020, Rose],
+    "A13": [1800, 950, Rose],
+    "A14": [1800, 820, Rose],
+    "A15": [1800, 725, Rose],
+    "A16": [1800, 608, Rose],
+    "A17": [1800, 490, Rose],
+    "A18": [1908, 380, Rose],
+    "A19": [1950, 325, Rose],
+    "A20": [2009, 280, Rose],
     "C01": [365, 1110, "Green"],
     "C02": [408, 1110, "Green"],
     "C03": [620, 1110, "Green"],
@@ -144,7 +145,7 @@ positions = {
     "I02": [730, 1425, "Blue"],
     "I03": [890, 1425, "Blue"],
     "I04": [1153, 1550, "Blue"],
-    "I05": [1321, 1490, "Blue"],
+    "I05": [1321, 1463, "Blue"],
     "I06": [1432, 1379, "Blue"],
     "I07": [1498, 1291, "Blue"],
     "I08": [1526, 1185, "Blue"],
@@ -322,30 +323,65 @@ edges = graph.edges(data=True)
 color_map_nodes = ["0.5"] * len(nodes)
 color_map_edges = ["0.5"] * len(edges)
 
-# edge colors for only path
-for i, edge in enumerate(edges):
-    if edge[0] and edge[1] in path:
-        color_map_edges[i] = positions[edge[0]][2]
-
 # labels
-names = {key: value for key, value in names.items() if key in nodes and key in path}
+names_path = {
+    key: value for key, value in names.items() if key in nodes and key in path
+}
 
 nodes_list = list(graph.nodes())
+edges_list = list(graph.edges())
 # node colors for only path
-for i, node in enumerate(graph):
-    if node in path:
-        color_map_nodes[i] = positions[node][2]
-        station_name = names[node]
+for node in path:
+    color_map_nodes[nodes_list.index(node)] = positions[node][2]
+    station_name = names_path[node]
+    try:
         intersecting_stations = station_lookup[station_name]
-        if node == "I08":
-            print(intersecting_stations)
-        for station in intersecting_stations:
-            color_map_nodes[nodes_list.index(station)] = positions[node][2]
+    except KeyError:
+        continue
+    for station in intersecting_stations:
+        color_map_nodes[nodes_list.index(station)] = positions[node][2]
+        print(node, station, color_map_nodes[nodes_list.index(station)])
 
+# edge colors for only path
+for start, end in zip(path, path[1:]):
+    edge = (start, end)
+    station_name1 = names[edge[0]]
+    station_name2 = names[edge[1]]
+    try:
+        intersecting_stations1 = station_lookup[station_name1]
+        intersecting_stations2 = station_lookup[station_name2]
+    except KeyError:
+        continue
+    if edge[0] and edge[1] in path:
+        try:
+            color_map_edges[edges_list.index(edge)] = color_map_nodes[
+                nodes_list.index(edge[0])
+            ]
+        except ValueError:
+            color_map_edges[edges_list.index((edge[1], edge[0]))] = color_map_nodes[
+                nodes_list.index(edge[0])
+            ]
+        for station1 in intersecting_stations1:
+            for station2 in intersecting_stations2:
+                inter_edge = (station1, station2)
+                if inter_edge in edges_list:
+                    color_map_edges[edges_list.index(inter_edge)] = color_map_nodes[
+                        nodes_list.index(edge[0])
+                    ]
+
+for i in path:
+    station_name = names_path[i]
+    try:
+        intersecting_stations = station_lookup[station_name]
+    except KeyError:
+        continue
+    for j in intersecting_stations:
+        print(j, color_map_nodes[nodes_list.index(j)])
 # positions
 # pos = {node: attr["pos"] for node, attr in nodes}
 pos = nx.get_node_attributes(graph, "pos")
 print(path)
+print(path_expanded)
 # draw graph #
 nx.draw_networkx(
     graph,
