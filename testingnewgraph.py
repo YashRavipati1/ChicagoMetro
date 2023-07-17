@@ -17,6 +17,7 @@ with open("station_positions.json", "r") as f:
     positions = json.load(f)
 
 Emerald = "#00ad9b"
+Leaf = "#7ab728"
 positions = {
     "A01": [206, 1550, "Red"],
     "A02": [325, 1550, "Red"],
@@ -250,13 +251,34 @@ positions = {
     "N17": [1054, 111, Emerald],
     "N18": [986, 111, Emerald],
     "N19": [901, 111, Emerald],
+    "S01": [543, 824, Leaf],
+    "S02": [739, 889, Leaf],
+    "S03": [870, 784, Leaf],
+    "S04": [1022, 784, Leaf],
+    "S05": [1253, 844, Leaf],
+    "S06": [1270, 725, Leaf],
+    "S07": [1397, 725, Leaf],
+    "S08": [1655, 725, Leaf],
+    "S09": [1800, 725, Leaf],
+    "S10": [1899, 725, Leaf],
+    "S11": [1998, 726, Leaf],
+    "S12": [2053, 685, Leaf],
+    "S13": [2094, 618, Leaf],
+    "S14": [2167, 572, Leaf],
+    "S15": [2199, 539, Leaf],
+    "S16": [2231, 503, Leaf],
+    "S17": [2264, 469, Leaf],
+    "S18": [2296, 441, Leaf],
+    "S19": [2328, 410, Leaf],
+    "S20": [2358, 381, Leaf],
+    "S21": [2358, 321, Leaf],
 }
 
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
-added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N"]
+added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N", "S"]
 for node, neighbors in data.items():
     if all(char not in node for char in added_lines):
         continue
