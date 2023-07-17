@@ -272,7 +272,7 @@ positions = {
     "S18": [2296, 441, Leaf],
     "S19": [2328, 410, Leaf],
     "S20": [2358, 381, Leaf],
-    "S21": [2358, 321, Leaf],
+    "S21": [2358, 321, Leaf]
 }
 
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
