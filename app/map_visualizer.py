@@ -8,22 +8,27 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import json
 
+# ----------------- constants ----------------- #
+BASE_COLOR = "0.0"
 
 # ----------------- functions ----------------- #
 """
     Visualizes a given path (assumes dijkstra's format).
 """
-def visualize_path(path)
+
+
+def visualize_path(path):
     # data & graph setup #
     # parameters
-    BASE_COLOR = "0.0"
 
     # loading
     data, names, positions, station_lookup = load_data()
     metro = load_graph(data, positions)
 
     # adjust graph #
-    metro, pos, labels, colors = jesus_take_the_wheel(metro, data, names, positions, station_lookup)
+    metro, pos, labels, colors = jesus_take_the_wheel(
+        metro, path, names, positions, station_lookup
+    )
 
     # save image to load #
     nx.draw_networkx(
@@ -44,9 +49,12 @@ def visualize_path(path)
     What am I even reading rn. Half of this is probably not needed, 
     but I'm scared to touch it.
 """
-def jesus_take_the_wheel(graph, data, names, positions, station_lookup):
+
+
+def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
     # replace
-    path_expanded = []
+    with open("../datasets/secondary.json", "r") as f:
+        secondary = json.load(f)
     previous_station = None
     for station in path:
         # get associated stations
@@ -63,7 +71,6 @@ def jesus_take_the_wheel(graph, data, names, positions, station_lookup):
         # add
         path_expanded += intersecting_stations
 
-    
     # get attributes #
     nodes = graph.nodes(data=True)
     edges = graph.edges(data=True)
@@ -136,7 +143,7 @@ def jesus_take_the_wheel(graph, data, names, positions, station_lookup):
     node_label_dict = {}
     for i in hold:
         node_label_dict[i] = secondary[i]
-    nx.set_node_attributes(graph, node_label_dict, 'label')
+    nx.set_node_attributes(graph, node_label_dict, "label")
 
     return graph, pos, node_label_dict, [color_map_nodes, color_map_edges]
 
@@ -144,10 +151,12 @@ def jesus_take_the_wheel(graph, data, names, positions, station_lookup):
 """
     Initializes graph.
 """
+
+
 def load_graph(data, positions):
     # define graph
     graph = nx.Graph()
-        
+
     # load with positions
     for node, neighbors in data.items():
         graph.add_node(node, pos=(positions[node][0], positions[node][1]))
@@ -158,6 +167,8 @@ def load_graph(data, positions):
 """
     Loads data necessary for visualizing.
 """
+
+
 def load_data():
     # load datasets
     with open("../datasets/clean_stations.json") as f:
@@ -168,12 +179,11 @@ def load_data():
         positions = json.load(f)
     with open("../datasets/full_intersections.json", "r") as f:
         station_lookup = json.load(f)
-    
+
     # adjust data
     station_lookup = {k: list(v.keys()) for k, v in station_lookup.items()}
     for i in positions:
         positions[i][1] = 1785 - positions[i][1]
-    
+
     # return
     return data, names, positions, station_lookup
-

@@ -5,13 +5,14 @@
 
 # ----------------- imports ----------------- #
 import json
-import networkx as nx
 
 
 # ----------------- algorithm ----------------- #
 """
     Finds path + returns (path_length, path, path_string).
 """
+
+
 def path_find(graph, start, end):
     # get path #
     distance, path = dijkstra(graph, start, end)
@@ -38,36 +39,37 @@ def path_find(graph, start, end):
 
     # get string
     path_string = ""
-    for i in range(len(dji[1]) - 1):
+    for i in range(len(path) - 1):
         if i == 0:
-            path_string += "Board at " + secondary[dji[1][i]] + " Station. "
-        if i == len(dji[1]) - 2:
+            path_string += "Board at " + secondary[path[i]] + " Station. "
+        if i == len(path) - 2:
             path_string += (
                 "Ride on the "
-                + letter_to_line[dji[1][i][0]]
+                + letter_to_line[path[i][0]]
                 + " line until "
-                + secondary[dji[1][i + 1]]
+                + secondary[path[i + 1]]
                 + " Station. "
             )
-        if dji[1][i + 1][0] == dji[1][i][0]:
+        if path[i + 1][0] == path[i][0]:
             continue
         path_string += (
             "Ride on the "
-            + letter_to_line[dji[1][i][0]]
+            + letter_to_line[path[i][0]]
             + " line until "
-            + secondary[dji[1][i]]
+            + secondary[path[i]]
             + " Station. "
         )
-    output += "Total distance traveled: " + str(dji[0]) + " km."
-
+    output += "Total distance traveled: " + str(distance) + " km."
 
     # returns #
     return distance, path, path_string
-    
+
 
 """
     Finds path.
 """
+
+
 def dijkstra(graph, start, end):
     # setup dijkstra's
     distances = {node: 1e7 for node in graph.nodes()}
@@ -105,4 +107,3 @@ def dijkstra(graph, start, end):
     path.insert(0, start)
 
     return distances[end], path
-
