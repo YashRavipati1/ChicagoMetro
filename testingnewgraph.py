@@ -333,7 +333,7 @@ for node, neighbors in data.items():
 # ----------- find path ----------- #
 # get path #
 # path = ["A01", "A02", "A03"]
-path = dijkstra(graph, "A01", "C20")[1]
+path = dijkstra(graph, "A01", "S19")[1]
 
 
 # convert to station names #
@@ -384,7 +384,6 @@ for node in path:
         continue
     for station in intersecting_stations:
         color_map_nodes[nodes_list.index(station)] = positions[node][2]
-        print(node, station, color_map_nodes[nodes_list.index(station)])
 
 # edge colors for only path
 for start, end in zip(path, path[1:]):
@@ -392,26 +391,26 @@ for start, end in zip(path, path[1:]):
     station_name1 = names[edge[0]]
     station_name2 = names[edge[1]]
     try:
+        color_map_edges[edges_list.index(edge)] = color_map_nodes[
+            nodes_list.index(edge[0])
+        ]
+    except ValueError:
+        color_map_edges[edges_list.index((edge[1], edge[0]))] = color_map_nodes[
+            nodes_list.index(edge[0])
+        ]
+    try:
         intersecting_stations1 = station_lookup[station_name1]
         intersecting_stations2 = station_lookup[station_name2]
     except KeyError:
         continue
-    if edge[0] and edge[1] in path:
-        try:
-            color_map_edges[edges_list.index(edge)] = color_map_nodes[
-                nodes_list.index(edge[0])
-            ]
-        except ValueError:
-            color_map_edges[edges_list.index((edge[1], edge[0]))] = color_map_nodes[
-                nodes_list.index(edge[0])
-            ]
-        for station1 in intersecting_stations1:
-            for station2 in intersecting_stations2:
-                inter_edge = (station1, station2)
-                if inter_edge in edges_list:
-                    color_map_edges[edges_list.index(inter_edge)] = color_map_nodes[
-                        nodes_list.index(edge[0])
-                    ]
+    for station1 in intersecting_stations1:
+        for station2 in intersecting_stations2:
+            inter_edge = (station1, station2)
+            if inter_edge in edges_list:
+                color_map_edges[edges_list.index(inter_edge)] = color_map_nodes[
+                    nodes_list.index(edge[0])
+                ]
+    print(edge, color_map_edges[edges_list.index(edge)])
 
 for i in path:
     station_name = names_path[i]
@@ -419,8 +418,6 @@ for i in path:
         intersecting_stations = station_lookup[station_name]
     except KeyError:
         continue
-    for j in intersecting_stations:
-        print(j, color_map_nodes[nodes_list.index(j)])
 # positions
 # pos = {node: attr["pos"] for node, attr in nodes}
 pos = nx.get_node_attributes(graph, "pos")
