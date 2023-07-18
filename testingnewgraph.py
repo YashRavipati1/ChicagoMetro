@@ -19,7 +19,7 @@ with open("station_positions.json", "r") as f:
 Emerald = "#00ad9b"
 Leaf = "#7ab728"
 Rose = "#ed6c64"
-Silver = "0.5"
+Silver = "#b5b5ad"
 BASE = "0.0"
 
 positions = {
@@ -313,7 +313,7 @@ positions = {
     "H19": [1614, 291, Silver],
     "H20": [1663, 243, Silver],
     "H21": [1720, 188, Silver],
-    "H22": [1910, 120, Silver]
+    "H22": [1910, 120, Silver],
 }
 
 # When getting pixel coords, need to subtact y coord from 1785 (height of image) to get correct coords (otherwise flipped)
@@ -352,7 +352,10 @@ for station in path:
     if station_name == previous_station:
         continue
 
-    intersecting_stations = station_lookup[station_name]
+    try:
+        intersecting_stations = station_lookup[station_name]
+    except KeyError:
+        continue
     previous_station = station_name
 
     # add
