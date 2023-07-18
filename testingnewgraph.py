@@ -410,7 +410,6 @@ for start, end in zip(path, path[1:]):
                 color_map_edges[edges_list.index(inter_edge)] = color_map_nodes[
                     nodes_list.index(edge[0])
                 ]
-    print(edge, color_map_edges[edges_list.index(edge)])
 
 for i in path:
     station_name = names_path[i]
@@ -422,16 +421,33 @@ for i in path:
 # pos = {node: attr["pos"] for node, attr in nodes}
 pos = nx.get_node_attributes(graph, "pos")
 print(path)
-print(path_expanded)
+
+check = path[0][0]
+print(check)
+hold = []
+hold.append(path[0])
+for i in range(len(path)):
+    if path[i][0] != check:
+        hold.append(path[i])
+        check = path[i][0]
+if path[len(path) - 1] not in hold:
+    hold.append(path[len(path) - 1])
+print(hold)
+node_label_dict = {}
+for i in hold:
+    node_label_dict[i] = secondary[i]
+print(node_label_dict)
+nx.set_node_attributes(graph, node_label_dict, 'label')
+
 # draw graph #
 nx.draw_networkx(
     graph,
     pos=pos,
     node_size=50,
-    labels=names,
+    labels=node_label_dict,
     node_color=color_map_nodes,
     edge_color=color_map_edges,
-    with_labels=False,
+    with_labels=True,
     font_size=8,
 )
 
