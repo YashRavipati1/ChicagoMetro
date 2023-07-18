@@ -53,8 +53,6 @@ def visualize_path(path):
 
 def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
     # replace
-    with open("../datasets/secondary.json", "r") as f:
-        secondary = json.load(f)
     previous_station = None
     for station in path:
         # get associated stations
@@ -142,7 +140,7 @@ def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
 
     node_label_dict = {}
     for i in hold:
-        node_label_dict[i] = secondary[i]
+        node_label_dict[i] = names[i]
     nx.set_node_attributes(graph, node_label_dict, "label")
 
     return graph, pos, node_label_dict, [color_map_nodes, color_map_edges]
