@@ -8,19 +8,17 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import json
 
+
 # ----------------- constants ----------------- #
 BASE_COLOR = "0.0"
+
 
 # ----------------- functions ----------------- #
 """
     Visualizes a given path (assumes dijkstra's format).
 """
-
-
 def visualize_path(path):
     # data & graph setup #
-    # parameters
-
     # loading
     data, names, positions, station_lookup = load_data()
     metro = load_graph(data, positions)
@@ -49,8 +47,6 @@ def visualize_path(path):
     What am I even reading rn. Half of this is probably not needed, 
     but I'm scared to touch it.
 """
-
-
 def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
     # replace
     previous_station = None
@@ -149,8 +145,6 @@ def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
 """
     Initializes graph.
 """
-
-
 def load_graph(data, positions):
     # define graph
     graph = nx.Graph()
@@ -165,8 +159,6 @@ def load_graph(data, positions):
 """
     Loads data necessary for visualizing.
 """
-
-
 def load_data():
     # load datasets
     with open("../datasets/clean_stations.json") as f:
@@ -185,3 +177,4 @@ def load_data():
 
     # return
     return data, names, positions, station_lookup
+
