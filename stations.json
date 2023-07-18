@@ -291,7 +291,7 @@
                 {
                     "distance": 0.0,
                     "duration": -1,
-                    "target_id": "H09",
+                    "target_id": "H10",
                     "type": "walk",
                     "type_id": 0
                 }
@@ -372,7 +372,7 @@
                 {
                     "distance": 0.0,
                     "duration": -1,
-                    "target_id": "H13",
+                    "target_id": "H14",
                     "type": "walk",
                     "type_id": 0
                 }
