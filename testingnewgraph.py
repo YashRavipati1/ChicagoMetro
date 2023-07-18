@@ -320,14 +320,10 @@ positions = {
 for i in positions:
     positions[i][1] = 1785 - positions[i][1]
 
-added_lines = ["A", "C", "Y", "I", "T", "E", "G", "Z", "M", "N", "S", "F", "H"]
 for node, neighbors in data.items():
-    if all(char not in node for char in added_lines):
-        continue
     graph.add_node(node, pos=(positions[node][0], positions[node][1]))
     for neighbor, weight in neighbors.items():
-        if any(char in neighbor for char in added_lines):
-            graph.add_edge(node, neighbor, weight=weight)
+        graph.add_edge(node, neighbor, weight=weight)
 
 
 # ----------- find path ----------- #
