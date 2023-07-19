@@ -7,10 +7,12 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
+from algorithm import path_find
+
 
 
 # ----------------- constants ----------------- #
-BASE_COLOR = "0.0"
+BASE_COLOR = "0.5"
 
 
 # ----------------- functions ----------------- #
@@ -61,9 +63,6 @@ def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
         except KeyError:
             continue
         previous_station = station_name
-
-        # add
-        path_expanded += intersecting_stations
 
     # get attributes #
     nodes = graph.nodes(data=True)
@@ -154,6 +153,7 @@ def load_graph(data, positions):
         graph.add_node(node, pos=(positions[node][0], positions[node][1]))
         for neighbor, weight in neighbors.items():
             graph.add_edge(node, neighbor, weight=weight)
+    return graph
 
 
 """
@@ -161,13 +161,14 @@ def load_graph(data, positions):
 """
 def load_data():
     # load datasets
-    with open("../datasets/clean_stations.json") as f:
+    with open("datasets/clean_stations.json") as f:
+        
         data = json.load(f)
-    with open("../datasets/secondary.json", "r") as f:
+    with open("datasets/secondary.json", "r") as f:
         names = json.load(f)
-    with open("../datasets/station_positions.json", "r") as f:
+    with open("datasets/station_positions.json", "r") as f:
         positions = json.load(f)
-    with open("../datasets/full_intersections.json", "r") as f:
+    with open("datasets/full_intersections.json", "r") as f:
         station_lookup = json.load(f)
 
     # adjust data
@@ -177,4 +178,3 @@ def load_data():
 
     # return
     return data, names, positions, station_lookup
-
