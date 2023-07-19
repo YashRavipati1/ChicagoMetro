@@ -40,6 +40,21 @@ def path_find(graph, start, end):
     # get string
     path_string = ""
     done = False
+    count = 1
+    for i in range(len(path) - 1):
+        if i == 0:
+            path_string += "Starting Station: " + secondary[path[i]] + " (" + letter_to_line[path[i][0]] + " Line)" "\n"
+        if i == len(path) - 2:
+            path_string += "Ending Station: " + secondary[path[i + 1]] + "\n"
+            done = True
+        if path[i + 1][0] == path[i][0]:
+            continue
+        if not done:
+            path_string += "Transfer Station " + str(count) + ": " + secondary[path[i + 1]] + " (" + letter_to_line[path[i + 1][0]] + " Line)" "\n"
+            count += 1
+
+    path_string += "Total distance traveled: " + str(round(distance, 1)) + " km.\n"
+    done = False
     for i in range(len(path) - 1):
         if i == 0:
             path_string += "Board at " + secondary[path[i]] + " Station. "
@@ -62,7 +77,6 @@ def path_find(graph, start, end):
                 + secondary[path[i + 1]]
                 + " Station. "
             )
-    path_string += "Total distance traveled: " + str(distance) + " km."
 
     # returns #
     return distance, path, path_string
