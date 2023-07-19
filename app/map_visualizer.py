@@ -7,8 +7,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
-from algorithm import path_find
-
 
 
 # ----------------- constants ----------------- #
