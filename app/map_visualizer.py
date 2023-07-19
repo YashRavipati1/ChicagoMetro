@@ -10,7 +10,7 @@ import json
 
 
 # ----------------- constants ----------------- #
-BASE_COLOR = "0.5"
+BASE_COLOR = "gainsboro"
 
 
 # ----------------- functions ----------------- #
