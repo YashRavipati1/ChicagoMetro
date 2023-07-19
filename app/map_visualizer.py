@@ -26,7 +26,7 @@ def visualize_path(path):
     metro = load_graph(data, positions)
 
     # adjust graph #
-    metro, pos, labels, colors = jesus_take_the_wheel(
+    metro, pos, labels, colors, node_label_dict, label_pos = jesus_take_the_wheel(
         metro, path, names, positions, station_lookup
     )
 
@@ -35,12 +35,12 @@ def visualize_path(path):
         metro,
         pos=pos,
         node_size=50,
-        labels=labels,
         node_color=colors[0],
         edge_color=colors[1],
-        with_labels=True,
+        with_labels=False,
         font_size=8,
     )
+    nx.draw_networkx_labels(metro, label_pos, node_label_dict, font_size=8)
 
     plt.savefig("route.png", dpi=300)
 
@@ -138,9 +138,9 @@ def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
     node_label_dict = {}
     for i in hold:
         node_label_dict[i] = names[i]
-    nx.set_node_attributes(graph, node_label_dict, "label")
+    label_pos = {node: (x, y - 50) for node, (x, y) in pos.items() if node in node_label_dict}
 
-    return graph, pos, node_label_dict, [color_map_nodes, color_map_edges]
+    return graph, pos, node_label_dict, [color_map_nodes, color_map_edges], node_label_dict, label_pos
 
 
 """
