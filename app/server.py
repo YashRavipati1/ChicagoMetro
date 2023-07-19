@@ -4,11 +4,10 @@
 
 
 # ----------------- imports ----------------- #
-from flask import Flask  # routing
-from algorithm import *  # path-finding
-from map_visualizer import *  # visualizing
-import networkx as nx  # graph
-from map_visualizer import *  # visualizing
+from flask import Flask             # routing
+from algorithm import *             # path-finding
+from map_visualizer import *        # visualizing
+import networkx as nx               # graph
 
 
 # ----------------- routes ----------------- #
@@ -27,6 +26,8 @@ def get_path(source, destination):
     visualize_path(path)
 
     # user output #
+
+
 
 
 data, names, positions, station_lookup = load_data()
