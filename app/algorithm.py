@@ -56,7 +56,7 @@ def path_find(graph, start, end):
             "Ride on the "
             + letter_to_line[path[i][0]]
             + " line until "
-            + secondary[path[i]]
+            + secondary[path[i + 1]]
             + " Station. "
         )
     path_string += "Total distance traveled: " + str(distance) + " km."
