@@ -20,12 +20,18 @@ def get_path(source, destination):
     metro_graph = nx.read_graphml("../datasets/tokyometro.graphml")
 
     # find path #
-    distance, path, path_string = dijkstra(metro_graph, source, destination)
+    distance, path, path_string = path_find(metro_graph, source, destination)
 
     # get visualization #
     visualize_path(path)
 
     # user output #
-    
 
 
+
+
+data, names, positions, station_lookup = load_data()
+metro = load_graph(data, positions)
+grr = path_find(metro, "A01", "S21")[1]
+print(grr)
+visualize_path(grr)

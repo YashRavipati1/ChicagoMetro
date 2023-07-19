@@ -40,7 +40,7 @@ def visualize_path(path):
         font_size=8,
     )
 
-    plt.savefig("route.png")
+    plt.savefig("./app/route.png", dpi=300)
 
 
 """
