@@ -5,8 +5,13 @@
 
 # ----------------- imports ----------------- #
 import networkx as nx
+import matplotlib
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import json
+import base64
+import io
 
 
 # ----------------- constants ----------------- #
@@ -42,7 +47,11 @@ def visualize_path(path):
         font_size=8,
     )
 
-    plt.savefig("route.png", dpi=300)
+    route_buffer = io.BytesIO()
+    plt.savefig(route_buffer, format="png", dpi=100)
+    route_buffer.seek(0)
+    route_string_64 = base64.b64encode(route_buffer.read()).decode("utf-8")
+    return route_string_64
 
 
 """
