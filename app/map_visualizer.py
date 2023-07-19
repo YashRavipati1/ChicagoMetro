@@ -17,6 +17,8 @@ BASE_COLOR = "0.5"
 """
     Visualizes a given path (assumes dijkstra's format).
 """
+
+
 def visualize_path(path):
     # data & graph setup #
     # loading
@@ -40,13 +42,15 @@ def visualize_path(path):
         font_size=8,
     )
 
-    plt.savefig("./app/route.png", dpi=300)
+    plt.savefig("route.png", dpi=300)
 
 
 """
     What am I even reading rn. Half of this is probably not needed, 
     but I'm scared to touch it.
 """
+
+
 def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
     # replace
     previous_station = None
@@ -142,6 +146,8 @@ def jesus_take_the_wheel(graph, path, names, positions, station_lookup):
 """
     Initializes graph.
 """
+
+
 def load_graph(data, positions):
     # define graph
     graph = nx.Graph()
@@ -157,16 +163,17 @@ def load_graph(data, positions):
 """
     Loads data necessary for visualizing.
 """
+
+
 def load_data():
     # load datasets
-    with open("datasets/clean_stations.json") as f:
-        
+    with open("../datasets/clean_stations.json") as f:
         data = json.load(f)
-    with open("datasets/secondary.json", "r") as f:
+    with open("../datasets/secondary.json", "r") as f:
         names = json.load(f)
-    with open("datasets/station_positions.json", "r") as f:
+    with open("../datasets/station_positions.json", "r") as f:
         positions = json.load(f)
-    with open("datasets/full_intersections.json", "r") as f:
+    with open("../datasets/full_intersections.json", "r") as f:
         station_lookup = json.load(f)
 
     # adjust data

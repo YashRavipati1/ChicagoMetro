@@ -34,7 +34,7 @@ def path_find(graph, start, end):
         "N": "Emerald",
         "F": "Brown",
     }
-    with open("datasets/secondary.json", "r") as f:
+    with open("../datasets/secondary.json", "r") as f:
         secondary = json.load(f)
 
     # get string
