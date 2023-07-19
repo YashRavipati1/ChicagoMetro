@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+.input-field {
+  margin-bottom: 10px; /* Adjust the value as needed to create the desired spacing between each input and button */
+}
+
+.update-button {
+  margin-top: 10px; /* Adjust the value as needed to create the desired spacing between each input and button */
+  margin-bottom: 10px; /* Adjust the value as needed to create the desired spacing between each input and button */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
