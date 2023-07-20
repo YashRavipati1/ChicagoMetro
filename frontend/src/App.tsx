@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = React.useState({
     distance: 0,
     path_string: "",
-    graph: new Image(),
+    graph: "",
   });
 
   const [start, setStart] = React.useState("");
@@ -43,40 +43,47 @@ function App() {
       setData({
         distance: data.distance,
         path_string: data.path_string,
-        graph: data.graph,
+        graph: data.graph || "", // Set data.graph to empty string if data.graph is null or undefined
       });
     })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+      setData({
+        distance: 0,
+        path_string: "Incorrect Station Name.",
+        graph: "", // Clear the image in case of an error
+      });
+    });
   }
-  
 
   return (
     <div className="App">
-            <header className="App-header">
-                <h1>{header}</h1>
-                {/* Calling a data from setdata for showing */}
-                  <input
-                    type="text"
-                    value={start}
-                    onChange={handleChangeStart}
-                    className="input-field"
-                  />
-                  <input
-                    type="text"
-                    value={end}
-                    onChange={handleChangeEnd}
-                    className="input-field"
-                  />
+      <header className="App-header">
+        <h1>{header}</h1>
+        {/* Calling a data from setdata for showing */}
+        <input
+          type="text"
+          value={start}
+          onChange={handleChangeStart}
+          className="input-field"
+        />
+        <input
+          type="text"
+          value={end}
+          onChange={handleChangeEnd}
+          className="input-field"
+        />
 
-                  <button onClick={HandleClick} className="update-button">
-                    Find Path
-                  </button>
+        <button onClick={HandleClick} className="update-button">
+          Find Path
+        </button>
 
-                <p>{data.path_string}</p>
-                <p>Distance: {data.distance.toFixed(2)}</p>
-                {data.graph && (
-                  <img src={`data:image/png;base64,${data.graph}`} alt="" />
-                )}
-            </header>
+        <p>{data.path_string}</p>
+        <p>Distance: {data.distance.toFixed(2)}</p>
+        {data.graph && (
+          <img key={data.graph} src={`data:image/png;base64,${data.graph}`} alt="" />
+        )}
+      </header>
     </div>
   );
 }
