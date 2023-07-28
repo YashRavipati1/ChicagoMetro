@@ -368,6 +368,7 @@ function App(this: any) {
           onChange={handleChangeEnd}
           className="input-field"
         /> */}
+        <div style={{width: '300px'}}>
         <Select 
           options={options}
           onChange={handleChangeStartSelect}
@@ -375,6 +376,8 @@ function App(this: any) {
           className="input-field"
           styles={customStyles}
         />
+        </div>
+        <div style={{width: '300px'}}>
         <Select 
           options={options}
           onChange={handleChangeEndSelect}
@@ -382,7 +385,7 @@ function App(this: any) {
           className="input-field"
           styles={customStyles}
         />
-
+        </div>
         <Button onClick={HandleClick} className="update-button">
           Find Path
         </Button>
