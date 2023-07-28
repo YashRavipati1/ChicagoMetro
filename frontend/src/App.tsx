@@ -1,11 +1,24 @@
 import { useState } from 'react';
 import Select from 'react-select';
+import styled from 'styled-components';
 import './App.css';
 
 interface OptionType {
   value: string;
   label: string;
 }
+
+const Button = styled.button`
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  border: 2px solid white;
+  margin: 10px 0px;
+  cursor: pointer;
+  const Button = styled.button
+`;
 
 function App(this: any) {
 
@@ -370,9 +383,9 @@ function App(this: any) {
           styles={customStyles}
         />
 
-        <button onClick={HandleClick} className="update-button">
+        <Button onClick={HandleClick} className="update-button">
           Find Path
-        </button>
+        </Button>
         <div style={{whiteSpace: "pre-wrap"}} id='path-text'>
           <p>{data.path_string}</p>
           <p>Distance: {data.distance.toFixed(2)} km</p>
