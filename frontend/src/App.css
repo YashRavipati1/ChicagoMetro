@@ -37,6 +37,10 @@
   margin-bottom: 10px; /* Adjust the value as needed to create the desired spacing between each input and button */
 }
 
+#path-text {
+  margin: 0px 120px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

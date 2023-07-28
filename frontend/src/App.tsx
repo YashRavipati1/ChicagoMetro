@@ -77,9 +77,10 @@ function App() {
         <button onClick={HandleClick} className="update-button">
           Find Path
         </button>
-
-        <p>{data.path_string}</p>
-        <p>Distance: {data.distance.toFixed(2)}</p>
+        <div style={{whiteSpace: "pre-wrap"}} id='path-text'>
+          <p>{data.path_string}</p>
+          <p>Distance: {data.distance.toFixed(2)} km</p>
+        </div>
         {data.graph && (
           <img key={data.graph} src={`data:image/png;base64,${data.graph}`} alt="" />
         )}
